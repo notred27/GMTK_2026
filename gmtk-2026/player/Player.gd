@@ -10,6 +10,7 @@ func move_player():
 	dir.z = move_dir.y
 	velocity = dir * speed
 
+
 func _physics_process(delta: float) -> void:
 	move_player()
 	move_and_slide()

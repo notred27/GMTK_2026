@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c3cmojtfo1iom"]
+
+[ext_resource type="Script" uid="uid://c84b4d8frj6x0" path="res://player/Player.gd" id="1_3c3w1"]
+[ext_resource type="Script" uid="uid://cfn7eifhx1gv8" path="res://player/camera_pan.gd" id="2_kpjcp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68yga"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_84upj"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1844018048]
+script = ExtResource("1_3c3w1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523]
+shape = SubResource("BoxShape3D_68yga")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163341488]
+mesh = SubResource("BoxMesh_84upj")
+
+[node name="DefaultCameraPosition" type="Marker3D" parent="." unique_id=1244719186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58379, 2.7178214, 3.8466916)
+
+[node name="Camera3D" type="Camera3D" parent="DefaultCameraPosition" unique_id=1159045129]
+transform = Transform3D(0.7558535, 0.3411263, -0.5588546, 0, 0.85355085, 0.5210097, 0.6547408, -0.39380696, 0.64515936, 0, 0, 0)
+script = ExtResource("2_kpjcp")
