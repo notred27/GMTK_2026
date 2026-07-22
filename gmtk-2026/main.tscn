@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xjlgiinvpwng"]
 
-[ext_resource type="PackedScene" uid="uid://c3cmojtfo1iom" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c3cmojtfo1iom" path="res://player/Player.tscn" id="1_ig7tw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68yga"]
 size = Vector3(35.823547, 1, 35.888046)
@@ -24,4 +24,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.190937, 0)
 omni_range = 23.167595
 
 [node name="Player" parent="." unique_id=1844018048 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8864784, 1.9132729, 1.0664711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8864784, 0.6585264, 1.0664711)
