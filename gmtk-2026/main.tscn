@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c3cmojtfo1iom" path="res://player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cmxwffrtmbuiy" path="res://interaction/interactable.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://duect7eyt6anm" path="res://sky.tscn" id="3_h2yge"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68yga"]
 size = Vector3(35.823547, 1, 35.888046)
@@ -33,5 +32,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5464249, 0.9094826, -1.3704
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.75487, 0)
 light_energy = 4.467
 omni_range = 32.097954
-
-[node name="Sky" parent="." unique_id=1510585989 instance=ExtResource("3_h2yge")]
