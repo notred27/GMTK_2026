@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c3cmojtfo1iom" path="res://player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cmxwffrtmbuiy" path="res://interaction/interactable.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b8vavc8k80ffg" path="res://interaction/actions/PrintAction.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bifngjkgjpwft" path="res://menus/pause_menu.tscn" id="3_h2yge"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68yga"]
 size = Vector3(35.823547, 1, 35.888046)
@@ -25,10 +27,17 @@ mesh = SubResource("PlaneMesh_68yga")
 [node name="Player" parent="." unique_id=1844018048 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8864784, 1.045702, 1.0664711)
 
-[node name="Interactable" parent="." unique_id=207452779 instance=ExtResource("2_0xm2m")]
+[node name="Interactable" parent="." unique_id=207452779 node_paths=PackedStringArray("action", "player") instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5464249, 0.9094826, -1.3704842)
+action = NodePath("Action")
+player = NodePath("../Player")
+
+[node name="Action" parent="Interactable" unique_id=1015784938 instance=ExtResource("3_1bvp3")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1088980585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.75487, 0)
 light_energy = 4.467
 omni_range = 32.097954
+
+[node name="PauseMenu" parent="." unique_id=1770680041 instance=ExtResource("3_h2yge")]
+process_mode = 3

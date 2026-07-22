@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8vavc8k80ffg"]
+
+[ext_resource type="Script" uid="uid://covlqo0f42bpa" path="res://interaction/actions/print_action.gd" id="1_00swx"]
+
+[node name="PrintAction" type="Node3D" unique_id=1015784938]
+script = ExtResource("1_00swx")
