@@ -7,13 +7,16 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_84upj"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1844018048]
+[node name="Player" type="CharacterBody3D" unique_id=1844018048 groups=["Player"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_3c3w1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523 groups=["Player"]]
 shape = SubResource("BoxShape3D_68yga")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163341488]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163341488 groups=["Player"]]
+layers = 2
 mesh = SubResource("BoxMesh_84upj")
 
 [node name="DefaultCameraPosition" type="Marker3D" parent="." unique_id=1244719186]

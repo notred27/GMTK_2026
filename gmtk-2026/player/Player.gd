@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-var speed = 10
+@export var speed = 4
+@export var gravity = 2
+
 
 func move_player():
 	var dir = Vector3.ZERO
@@ -8,6 +10,7 @@ func move_player():
 
 	dir.x = move_dir.x
 	dir.z = move_dir.y
+	dir.y -= gravity
 	velocity = dir * speed
 
 
