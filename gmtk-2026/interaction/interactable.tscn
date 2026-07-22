@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cmxwffrtmbuiy"]
+
+[ext_resource type="Script" uid="uid://b1dhfgbri6ech" path="res://interaction/interactable.gd" id="1_5km56"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_68yga"]
+radius = 0.82747024
+
+[sub_resource type="SphereMesh" id="SphereMesh_68yga"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvyld"]
+albedo_color = Color(0.39607844, 0.39607844, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5km56"]
+radius = 0.24398255
+
+[node name="Interactable" type="Node3D" unique_id=207452779]
+script = ExtResource("1_5km56")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=25033599]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1814427556]
+shape = SubResource("SphereShape3D_68yga")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=69991754]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=741576268]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_68yga")
+surface_material_override/0 = SubResource("StandardMaterial3D_tvyld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=777392117]
+shape = SubResource("SphereShape3D_5km56")
+
+[node name="InteractFlag" type="Label3D" parent="." unique_id=2020725453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.876965, 0)
+billboard = 2
+double_sided = false
+text = "E"
+font_size = 64
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

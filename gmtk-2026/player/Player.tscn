@@ -7,18 +7,23 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_84upj"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1844018048]
+[node name="Player" type="CharacterBody3D" unique_id=1844018048 groups=["Player"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_3c3w1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523 groups=["Player"]]
 shape = SubResource("BoxShape3D_68yga")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163341488]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163341488 groups=["Player"]]
+layers = 2
 mesh = SubResource("BoxMesh_84upj")
 
 [node name="DefaultCameraPosition" type="Marker3D" parent="." unique_id=1244719186]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58379, 2.7178214, 3.8466916)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9837093, 4.4876604, 5.0178766)
 
 [node name="Camera3D" type="Camera3D" parent="DefaultCameraPosition" unique_id=1159045129]
-transform = Transform3D(0.7558535, 0.3411263, -0.5588546, 0, 0.85355085, 0.5210097, 0.6547408, -0.39380696, 0.64515936, 0, 0, 0)
+transform = Transform3D(0.70710677, 0.35355338, -0.61237246, 0, 0.8660254, 0.50000006, 0.70710677, -0.35355338, 0.61237246, 0, 0, 0)
+size = 14.07395
+near = 0.012
 script = ExtResource("2_kpjcp")
