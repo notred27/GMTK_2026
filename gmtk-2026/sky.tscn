@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://duect7eyt6anm"]
+
+[ext_resource type="Script" uid="uid://dxa3abq31qud4" path="res://sky.gd" id="1_gr5xt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lquwl"]
+
+[sub_resource type="Sky" id="Sky_1bvp3"]
+sky_material = SubResource("ProceduralSkyMaterial_lquwl")
+
+[sub_resource type="Environment" id="Environment_68yga"]
+background_mode = 2
+sky = SubResource("Sky_1bvp3")
+
+[node name="Sky" type="Node3D" unique_id=1510585989 node_paths=PackedStringArray("sun", "world_environment")]
+script = ExtResource("1_gr5xt")
+sun = NodePath("DirectionalLight3D")
+world_environment = NodePath("WorldEnvironment")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1350687507]
+transform = Transform3D(1, 0, 0, 0, -0.053908117, 0.9985459, 0, -0.9985459, -0.053908117, 0, 7.4951706, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2102961624]
+environment = SubResource("Environment_68yga")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1853615857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9205446, 0, -7.5005116)
+omni_range = 17.90554
