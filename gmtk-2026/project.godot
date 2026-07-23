@@ -62,6 +62,7 @@ pause={
 3d_render/layer_1="Environment"
 3d_render/layer_2="Player"
 3d_render/layer_3="Interact"
+3d_physics/layer_4="Fill Light"
 
 [physics]
 

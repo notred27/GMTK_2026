@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://k3llif43lh37"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqdwy"]
+size = Vector3(1, 0.49035645, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqdwy"]
+albedo_color = Color(1, 0.5294118, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_68yga"]
+material = SubResource("StandardMaterial3D_qqdwy")
+size = Vector3(1, 0.10888672, 1)
+
+[node name="PressurePlate" type="Node3D" unique_id=1415131089]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=913651901]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=245735280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25482178, 0)
+shape = SubResource("BoxShape3D_qqdwy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1184889686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.056004345, 0)
+mesh = SubResource("BoxMesh_68yga")
