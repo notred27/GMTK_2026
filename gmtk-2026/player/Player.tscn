@@ -7,16 +7,18 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_84upj"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1844018048 groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1844018048 node_paths=PackedStringArray("spotlight", "fill_light") groups=["Player"]]
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_3c3w1")
+spotlight = NodePath("SpotLight3D")
+fill_light = NodePath("FillLight")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523 groups=["Player"]]
 shape = SubResource("BoxShape3D_68yga")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163341488 groups=["Player"]]
-layers = 2
+layers = 11
 mesh = SubResource("BoxMesh_84upj")
 
 [node name="DefaultCameraPosition" type="Marker3D" parent="." unique_id=1244719186]
@@ -39,3 +41,13 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Current Energy: 100"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1792506791]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.380432, 0)
+light_energy = 10.0
+spot_range = 9.509557
+spot_angle_attenuation = 0.050765887
+
+[node name="FillLight" type="DirectionalLight3D" parent="." unique_id=1482604098]
+transform = Transform3D(0.7102414, 0, -0.7039582, 0, 1, 0, 0.7039582, 0, 0.7102414, -3.0017366, 0, 2.9392505)
+light_cull_mask = 4294966280
