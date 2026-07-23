@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmxwffrtmbuiy"]
 
 [ext_resource type="Script" uid="uid://b1dhfgbri6ech" path="res://interaction/interactable.gd" id="1_5km56"]
+[ext_resource type="Shader" uid="uid://dxsn8bpvmwbo0" path="res://interaction/interactable_progress.gdshader" id="2_pthh1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_68yga"]
 radius = 0.82747024
@@ -12,6 +13,17 @@ albedo_color = Color(0.39607844, 0.39607844, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5km56"]
 radius = 0.24398255
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_84upj"]
+render_priority = 0
+shader = ExtResource("2_pthh1")
+shader_parameter/fill_color = Color(0, 0.9127812, 0.29886615, 1)
+shader_parameter/empty_color = Color(0.3553136, 0.35531354, 0.35531357, 0.2)
+shader_parameter/fill_amount = 0.0
+shader_parameter/ring_radius = 0.2950000140125
+shader_parameter/ring_thickness = 0.094000004465
+
+[sub_resource type="QuadMesh" id="QuadMesh_68yga"]
 
 [node name="Interactable" type="Node3D" unique_id=207452779]
 script = ExtResource("1_5km56")
@@ -33,12 +45,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tvyld")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=777392117]
 shape = SubResource("SphereShape3D_5km56")
 
-[node name="InteractFlag" type="Label3D" parent="." unique_id=2020725453]
+[node name="InteractionUI" type="Node3D" parent="." unique_id=834691425]
+
+[node name="InteractFlag" type="Label3D" parent="InteractionUI" unique_id=2020725453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.876965, 0)
 billboard = 2
 double_sided = false
 text = "E"
 font_size = 64
+
+[node name="InteractShader" type="MeshInstance3D" parent="InteractionUI" unique_id=985832405]
+transform = Transform3D(0.7015898, 0, -0.7125811, 0, 1, 0, 0.7125811, 0, 0.7015898, 0, 0.8849213, 0)
+material_override = SubResource("ShaderMaterial_84upj")
+mesh = SubResource("QuadMesh_68yga")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

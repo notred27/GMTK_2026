@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c3cmojtfo1iom" path="res://player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cmxwffrtmbuiy" path="res://interaction/interactable.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bxpm3y1q23ip7" path="res://interaction/actions/AddEnergyAction.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b8vavc8k80ffg" path="res://interaction/actions/PrintAction.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bifngjkgjpwft" path="res://menus/pause_menu.tscn" id="3_h2yge"]
 
@@ -12,32 +13,43 @@ size = Vector3(35.823547, 1, 35.888046)
 
 [node name="Main" type="Node3D" unique_id=454559609]
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1789883261]
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1166752537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087677, 0, 0.043052673)
-shape = SubResource("BoxShape3D_68yga")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1522873621]
-transform = Transform3D(17.915, 0, 0, 0, 17.915, 0, 0, 0, 17.915, 0, 0, 0)
-mesh = SubResource("PlaneMesh_68yga")
-
 [node name="Player" parent="." unique_id=1844018048 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8864784, 1.045702, 1.0664711)
 
-[node name="Interactable" parent="." unique_id=207452779 node_paths=PackedStringArray("action", "player") instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5464249, 0.9094826, -1.3704842)
-action = NodePath("Action")
-player = NodePath("../Player")
+[node name="PauseMenu" parent="." unique_id=1770680041 instance=ExtResource("3_h2yge")]
+process_mode = 3
 
-[node name="Action" parent="Interactable" unique_id=1015784938 instance=ExtResource("3_1bvp3")]
+[node name="Environment" type="Node3D" parent="." unique_id=1732467388]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1088980585]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment" unique_id=1088980585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.75487, 0)
 light_energy = 4.467
 omni_range = 32.097954
 
-[node name="PauseMenu" parent="." unique_id=1770680041 instance=ExtResource("3_h2yge")]
-process_mode = 3
+[node name="Floor" type="StaticBody3D" parent="Environment" unique_id=1789883261]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor" unique_id=1166752537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087677, 0, 0.043052673)
+shape = SubResource("BoxShape3D_68yga")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor" unique_id=1522873621]
+transform = Transform3D(17.915, 0, 0, 0, 17.915, 0, 0, 0, 17.915, 0, 0, 0)
+mesh = SubResource("PlaneMesh_68yga")
+
+[node name="Objects" type="Node3D" parent="." unique_id=524574191]
+
+[node name="EnergyTest" parent="Objects" unique_id=1459365342 node_paths=PackedStringArray("action") instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.167514, 0.75, -6.588828)
+action = NodePath("AddEnergyAction")
+
+[node name="AddEnergyAction" parent="Objects/EnergyTest" unique_id=1538335251 instance=ExtResource("2_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.167514, -0.75, 6.588828)
+energy_increase_amount = 20
+
+[node name="PrintTest" parent="Objects" unique_id=207452779 node_paths=PackedStringArray("action") instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5464249, 0.9094826, -1.3704842)
+action = NodePath("Action")
+
+[node name="Action" parent="Objects/PrintTest" unique_id=1015784938 instance=ExtResource("3_1bvp3")]

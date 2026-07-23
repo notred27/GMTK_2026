@@ -27,3 +27,15 @@ transform = Transform3D(0.70710677, 0.35355338, -0.61237246, 0, 0.8660254, 0.500
 size = 14.07395
 near = 0.012
 script = ExtResource("2_kpjcp")
+
+[node name="PlayerUI" type="Control" parent="." unique_id=1955513441]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CurrentEnergy" type="Label" parent="PlayerUI" unique_id=270945664]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Current Energy: 100"

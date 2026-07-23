@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 @export var speed = 4
@@ -26,4 +27,9 @@ func _physics_process(delta: float) -> void:
 
 func drain_energy(delta: float) -> void:
 	energy = max(energy - energy_drain_rate * delta, 0.0)
+	$PlayerUI/CurrentEnergy.text = "Current Energy: %s" % [energy]
+	
 	#print(energy)
+	
+func add_energy(val: float):
+	energy += val

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bxpm3y1q23ip7"]
+
+[ext_resource type="Script" uid="uid://1u7dc8yaqe6e" path="res://interaction/actions/add_energy_action.gd" id="1_qvu8v"]
+
+[node name="AddEnergyAction" type="Node3D" unique_id=1538335251]
+script = ExtResource("1_qvu8v")
