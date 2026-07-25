@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwkwin7t1wgoe"]
+
+[ext_resource type="Script" uid="uid://cawsrp5ueur71" path="res://interaction/gear_puzzle.gd" id="1_ai2vx"]
+
+[node name="GearPuzzle" type="Node3D" unique_id=564953163]
+script = ExtResource("1_ai2vx")

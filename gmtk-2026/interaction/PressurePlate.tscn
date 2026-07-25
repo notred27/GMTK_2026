@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://k3llif43lh37"]
 
+[ext_resource type="Script" uid="uid://dnxbyeoh6l8s0" path="res://interaction/pressure_plate.gd" id="1_derxm"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_qqdwy"]
 size = Vector3(1, 0.49035645, 1)
 
@@ -11,6 +13,7 @@ material = SubResource("StandardMaterial3D_qqdwy")
 size = Vector3(1, 0.10888672, 1)
 
 [node name="PressurePlate" type="Node3D" unique_id=1415131089]
+script = ExtResource("1_derxm")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=913651901]
 
@@ -21,3 +24,6 @@ shape = SubResource("BoxShape3D_qqdwy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1184889686]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.056004345, 0)
 mesh = SubResource("BoxMesh_68yga")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

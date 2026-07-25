@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK_2026"
-run/main_scene="uid://xjlgiinvpwng"
+run/main_scene="uid://dmj2isbpvcv0a"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 Player=""
+Moveable=""
 
 [input]
 
@@ -74,3 +75,4 @@ rendering_device/driver.windows="d3d12"
 scaling_3d/mode=1
 scaling_3d/mode.ios=1
 scaling_3d/mode.macos=1
+anti_aliasing/quality/use_taa=true

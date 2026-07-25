@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://f4diegryysg5"]
+
+[ext_resource type="Script" uid="uid://ve70qbwincla" path="res://interaction/actions/spend_energy_action.gd" id="1_6yk3u"]
+
+[node name="SpendEnergyAction" type="Node3D" unique_id=1306514175]
+script = ExtResource("1_6yk3u")

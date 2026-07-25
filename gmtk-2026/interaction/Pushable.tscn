@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://4s8ryw8pnhfa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ie5b1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68yga"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_84upj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie5b1"]
+albedo_color = Color(1, 1, 0.46666667, 1)
+
+[node name="Pushable" type="RigidBody3D" unique_id=108375752 groups=["Moveable"]]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_ie5b1")
+linear_damp = 4.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1078812518]
+shape = SubResource("BoxShape3D_68yga")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1429032088]
+mesh = SubResource("BoxMesh_84upj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ie5b1")

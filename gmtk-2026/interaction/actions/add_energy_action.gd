@@ -1,5 +1,5 @@
-class_name InteractAction
-extends Node
+class_name AddEnergyAction
+extends InteractAction
 
 @export var energy_increase_amount = 10
 
