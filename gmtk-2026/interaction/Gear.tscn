@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bnnpdp0ade5rn"]
+
+[ext_resource type="Script" uid="uid://ce2vw8obbqb2g" path="res://interaction/gear.gd" id="1_26r58"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_26r58"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_84upj"]
+height = 0.2977295
+radius = 0.41992188
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_68yga"]
+height = 0.29406738
+
+[sub_resource type="BoxMesh" id="BoxMesh_68yga"]
+size = Vector3(0.10569763, 0.18859863, 0.56396484)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26r58"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Gear" type="RigidBody3D" unique_id=407548117]
+axis_lock_linear_y = true
+physics_material_override = SubResource("PhysicsMaterial_26r58")
+freeze_mode = 1
+linear_damp = 10.0
+script = ExtResource("1_26r58")
+radius = 0.5
+mesh_tolerance = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=709708717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14886475, 0)
+shape = SubResource("CylinderShape3D_84upj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1969167120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14703369, 0)
+mesh = SubResource("CylinderMesh_68yga")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1727722136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003211975, 0.24468994, -0.15724635)
+mesh = SubResource("BoxMesh_68yga")
+surface_material_override/0 = SubResource("StandardMaterial3D_26r58")

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8vavc8k80ffg" path="res://interaction/actions/PrintAction.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bifngjkgjpwft" path="res://menus/pause_menu.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3llif43lh37" path="res://interaction/PressurePlate.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://f4diegryysg5" path="res://interaction/actions/SpendEnergyAction.tscn" id="6_272bh"]
 
 [sub_resource type="Environment" id="Environment_68yga"]
 background_energy_multiplier = 0.0
@@ -16,6 +17,9 @@ ambient_light_energy = 0.0
 size = Vector3(35.823547, 0.48339844, 35.888046)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_68yga"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(0.8622298, 0.17153051, 0.4629327, 1)
 
 [node name="Main" type="Node3D" unique_id=454559609]
 
@@ -50,7 +54,6 @@ action = NodePath("AddEnergyAction")
 
 [node name="AddEnergyAction" parent="Objects/EnergyTest" unique_id=1538335251 instance=ExtResource("2_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.167514, -0.75, 6.588828)
-energy_increase_amount = 20
 
 [node name="PrintTest" parent="Objects" unique_id=207452779 node_paths=PackedStringArray("action") instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5464249, 0.9094826, -1.3704842)
@@ -58,5 +61,16 @@ action = NodePath("Action")
 
 [node name="Action" parent="Objects/PrintTest" unique_id=1015784938 instance=ExtResource("3_1bvp3")]
 
+[node name="EnergyCostTest" parent="Objects" unique_id=416879987 node_paths=PackedStringArray("action") instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3584394, 0.23339844, -4.102042)
+action = NodePath("SpendEnergyAction")
+
+[node name="MeshInstance3D" parent="Objects/EnergyCostTest/StaticBody3D" parent_id_path=PackedInt32Array(416879987, 69991754) index="0" unique_id=741576268]
+surface_material_override/0 = SubResource("StandardMaterial3D_5vw27")
+
+[node name="SpendEnergyAction" parent="Objects/EnergyCostTest" unique_id=1306514175 instance=ExtResource("6_272bh")]
+
 [node name="PressurePlate" parent="." unique_id=1415131089 instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3179407, 0.018398046, -0.30420303)
+
+[editable path="Objects/EnergyCostTest"]

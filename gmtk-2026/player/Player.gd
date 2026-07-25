@@ -4,8 +4,8 @@ extends CharacterBody3D
 @export var speed = 4
 @export var gravity = 2
 @export var energy = 100.0
-@export var max_energy = 100.0
-@export var energy_drain_rate = 5.0
+@export var max_energy = 120.0
+@export var energy_drain_rate = 1.0
 
 @export var spotlight: SpotLight3D
 @export var fill_light: DirectionalLight3D
@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var max_light_energy := 10.0
 @export var min_fill_light_energy := 0.2
 @export var max_fill_light_energy := 1.0
+
+@export var push_speed: float = 2.0
 
 
 func move_player():
@@ -28,11 +30,25 @@ func move_player():
 func _physics_process(delta: float) -> void:
 	move_player()
 	move_and_slide()
+	push_rigid_bodies()
 	drain_energy(delta)
 
+
+func push_rigid_bodies() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is RigidBody3D:
+			var push_dir = -collision.get_normal()
+			push_dir.y = 0
+			var target_velocity = push_dir * push_speed
+			collider.linear_velocity.x = target_velocity.x
+			collider.linear_velocity.z = target_velocity.z
+			
+			
 func drain_energy(delta: float) -> void:
 	energy = max(energy - energy_drain_rate * delta, 0.0)
-	$PlayerUI/CurrentEnergy.text = "Current Energy: %s" % [energy]
+	$PlayerUI/CurrentEnergy.text = "Current Energy: %s" % [int(energy)]
 	update_spotlight()
 
 func update_spotlight() -> void:
@@ -48,3 +64,7 @@ func update_spotlight() -> void:
 	
 func add_energy(val: float):
 	energy = min(energy + val, max_energy)
+
+
+func spend_energy(val: float):
+	energy = min(energy - val, max_energy)
