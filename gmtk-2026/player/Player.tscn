@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cfn7eifhx1gv8" path="res://player/camera_pan.gd" id="2_kpjcp"]
 [ext_resource type="PackedScene" uid="uid://ce2ng0j74o3cx" path="res://assets/robot_animated_2.fbx" id="4_83hs8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_68yga"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnvi2"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1844018048 node_paths=PackedStringArray("spotlight", "fill_light", "mesh") groups=["Player"]]
 collision_layer = 7
@@ -15,7 +15,8 @@ fill_light = NodePath("FillLight")
 mesh = NodePath("robot_animated_2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1986533523 groups=["Player"]]
-shape = SubResource("BoxShape3D_68yga")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07986599, 0)
+shape = SubResource("SphereShape3D_wnvi2")
 
 [node name="PlayerUI" type="Control" parent="." unique_id=1955513441]
 layout_mode = 3
