@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnnpdp0ade5rn" path="res://interaction/Gear.tscn" id="5_m3clv"]
 [ext_resource type="PackedScene" uid="uid://k3llif43lh37" path="res://interaction/PressurePlate.tscn" id="6_m3clv"]
 [ext_resource type="Script" uid="uid://dk5qemd3g46k" path="res://interaction/actions/activate_gears_action.gd" id="7_mxnmf"]
+[ext_resource type="PackedScene" uid="uid://owdeknokqg6g" path="res://assets/map.fbx" id="8_4eo0i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5t25c"]
 ground_bottom_color = Color(0.76048684, 0.6971857, 0.6269191, 1)
@@ -20,13 +21,11 @@ sky = SubResource("Sky_d0nb3")
 reflected_light_source = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_68yga"]
-height = 0.1328125
-radius = 21.041992
+height = 1.0428772
+radius = 10.0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_68yga"]
-top_radius = 20.579102
-bottom_radius = 20.579102
-height = 0.6191406
+[sub_resource type="BoxShape3D" id="BoxShape3D_4eo0i"]
+size = Vector3(6.220764, 1, 6.108032)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_v2g3s"]
 top_radius = 1.6958008
@@ -38,30 +37,14 @@ height = 0.015457153
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=49368330]
 environment = SubResource("Environment_84upj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1131601154]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.578445, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1118167769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93359375, 0)
-shape = SubResource("CylinderShape3D_68yga")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1423985567]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6904297, 0)
-mesh = SubResource("CylinderMesh_68yga")
-
 [node name="Player" parent="." unique_id=1844018048 instance=ExtResource("1_bexhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.177721, 0)
-
-[node name="CloudPlane" type="MeshInstance3D" parent="." unique_id=332366003]
-transform = Transform3D(41.705, 0, 0, 0, 41.705, 0, 0, 0, 41.705, 0.092041016, 15.841194, -0.50878906)
-mesh = SubResource("CylinderMesh_v2g3s")
-surface_material_override/0 = ExtResource("2_t7iv1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.150377, -8.042786)
 
 [node name="Pushable" parent="." unique_id=108375752 instance=ExtResource("3_2nifc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4329834, 19.18209, -4.1966553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.656616, 23.034508, -15.055626)
 
 [node name="GearPuzzle" parent="." unique_id=564953163 node_paths=PackedStringArray("gears", "driver_gear") instance=ExtResource("4_q4iis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.703623, -9.614517)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.703623, -21.611776)
 gears = [NodePath("DriverGear"), NodePath("Gear2"), NodePath("Gear3")]
 driver_gear = NodePath("DriverGear")
 
@@ -80,3 +63,24 @@ action = NodePath("ActivateGearsAction")
 [node name="ActivateGearsAction" type="Node3D" parent="GearPuzzle/PressurePlate" unique_id=38130862 node_paths=PackedStringArray("gear_puzzle")]
 script = ExtResource("7_mxnmf")
 gear_puzzle = NodePath("../..")
+
+[node name="Map" type="Node3D" parent="." unique_id=1935833519]
+
+[node name="MapMesh" parent="Map" unique_id=1300592934 instance=ExtResource("8_4eo0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="Collision" type="StaticBody3D" parent="Map" unique_id=1131601154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.578445, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Collision" unique_id=1118167769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27098083, 0)
+shape = SubResource("CylinderShape3D_68yga")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/Collision" unique_id=515694358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025787354, 0, 0.7241821)
+shape = SubResource("BoxShape3D_4eo0i")
+
+[node name="CloudPlane" type="MeshInstance3D" parent="Map" unique_id=332366003]
+transform = Transform3D(41.705, 0, 0, 0, 41.705, 0, 0, 0, 41.705, 0, 0, 0)
+mesh = SubResource("CylinderMesh_v2g3s")
+surface_material_override/0 = ExtResource("2_t7iv1")

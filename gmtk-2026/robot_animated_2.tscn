@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dikppmp8wg8hi"]
+
+[ext_resource type="PackedScene" uid="uid://ce2ng0j74o3cx" path="res://assets/robot_animated_2.fbx" id="1_vgxtm"]
+
+[node name="robot_animated_2" unique_id=2115687458 instance=ExtResource("1_vgxtm")]
+
+[node name="Skeleton3D" parent="robot_armature" parent_id_path=PackedInt32Array(1457972195) index="0" unique_id=155606585]
+bones/1/position = Vector3(0, 0, -3.469447e-18)
+bones/1/rotation = Quaternion(-0.6709442, -0.2232346, 0.2232346, 0.6709444)
+bones/1/scale = Vector3(1, 1.0000001, 1.0000001)
+bones/2/position = Vector3(0.0008573424, 0.0055833007, -0.0010640066)
+bones/2/rotation = Quaternion(-0.5205221, -0.13002978, -0.47859892, 0.69504833)
+bones/2/scale = Vector3(1.0000001, 1, 0.99999994)
+bones/4/position = Vector3(-0.00049694575, 0, 0.003909146)
+bones/4/rotation = Quaternion(0.70759994, 0, 0, 0.70661324)
+bones/4/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(-0.009210093, 0.007968005, 1.5353776e-09)
+bones/6/rotation = Quaternion(-3.991647e-07, -4.8740723e-08, 0.98763597, 0.15676497)
+bones/6/scale = Vector3(0.999999, 0.9999999, 1)
+bones/7/position = Vector3(1.3344328e-09, 0.006696093, 5.5982398e-12)
+bones/7/rotation = Quaternion(9.969597e-08, -6.820756e-07, 0.0063789967, 0.9999797)
+bones/8/position = Vector3(-1.1809012e-09, 0.0065960726, -1.2191614e-11)
+bones/8/rotation = Quaternion(-5.83672e-09, -1.5436105e-07, -0.007916139, 0.9999687)
+bones/8/scale = Vector3(0.99999994, 1.0000001, 1)
+bones/10/position = Vector3(-1.1809012e-09, 0.0065960726, -1.2191614e-11)
+bones/10/rotation = Quaternion(6.629764e-08, -1.2179318e-07, 0.09400026, 0.9955722)
+bones/10/scale = Vector3(1, 1, 1)
+bones/12/position = Vector3(0.008033646, 0.00837781, 1.2508512e-09)
+bones/12/rotation = Quaternion(5.3202785e-07, 1.1870835e-08, 0.9858475, -0.16764544)
+bones/12/scale = Vector3(0.9999974, 0.9999998, 1)
+bones/13/position = Vector3(-9.454527e-10, 0.0073377504, 9.0184605e-12)
+bones/13/rotation = Quaternion(4.8855064e-08, 6.9601526e-07, -0.049748868, 0.9987618)
+bones/13/scale = Vector3(0.9999999, 0.99999994, 1)
+bones/14/position = Vector3(1.4675053e-09, 0.005956597, -8.895404e-12)
+bones/14/rotation = Quaternion(-1.2301913e-08, 3.2173052e-08, 0.034261543, 0.9994129)
+bones/16/position = Vector3(1.4675053e-09, 0.005956597, -8.895404e-12)
+bones/16/rotation = Quaternion(2.6920906e-08, -9.083971e-09, -0.084723376, 0.9964045)
+bones/18/position = Vector3(0, 0.011483053, -4.5148312e-12)
+bones/18/rotation = Quaternion(2.134962e-08, 1.5928007e-08, -0.007654696, 0.99997073)
+bones/20/position = Vector3(-0.0008022266, 0.00092923496, 0.0021963587)
+bones/20/rotation = Quaternion(0.5417058, 0.45448306, 0.45448324, 0.54170567)
+bones/22/position = Vector3(-0.003474424, 0.001325296, 0.0003720598)
+bones/22/rotation = Quaternion(0.5000374, -0.49996275, -0.49996275, 0.50003725)
+bones/22/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(0.0031614942, 0.0029875091, 5.7842874e-05)
+bones/24/rotation = Quaternion(0.500038, 0.49996197, 0.49996197, 0.500038)
+bones/24/scale = Vector3(1, 1, 1)
+
+[node name="robot_wheels" parent="robot_armature/Skeleton3D" index="0" unique_id=207464728]
+transform = Transform3D(-4.172325e-07, 1.0000001, -2.9802322e-08, 0.8480402, 2.9802322e-07, 0.52993214, 0.52993226, 1.3145443e-07, -0.84804, 0.0018208488, -0.00033826698, -0.0094924485)
+bone_idx = 2
+
+[node name="robot_head" parent="robot_armature/Skeleton3D" index="1" unique_id=1920590179]
+transform = Transform3D(0.9998828, 0.015308941, 3.152823e-08, 2.139698e-05, -0.0013954553, -0.99999905, -0.015308927, 0.9998818, -0.0013956194, 1.1641532e-10, -2.9979727e-05, 0.02148303)
+bone_idx = 18
+
+[node name="robot_gear1" parent="robot_armature/Skeleton3D" index="2" unique_id=314176068]
+transform = Transform3D(0.17378026, -8.940696e-08, 0.9847844, -0.00137464, -0.999999, 0.00024252366, 0.98478353, -0.0013959339, -0.17378011, -0.0008022265, -0.0022116078, 0.010926157)
+bone_idx = 20
+
+[node name="robot_gear2" parent="robot_armature/Skeleton3D" index="3" unique_id=930159307]
+transform = Transform3D(0.17378026, -8.940696e-08, 0.9847844, -0.00137464, -0.999999, 0.00024252366, 0.98478353, -0.0013959339, -0.17378011, -0.0008022265, -0.0022116078, 0.010926157)
+bone_idx = 20
+
+[node name="robot_gear3" parent="robot_armature/Skeleton3D" index="4" unique_id=533854163]
+transform = Transform3D(0.00014913082, -1.1920929e-07, -1, 0.0013955832, -0.99999905, 3.2731586e-07, -0.99999905, -0.0013955832, -0.00014913052, -0.0034744237, -0.00037390846, 0.0013247741)
+bone_idx = 22
+
+[node name="robot_gear4" parent="robot_armature/Skeleton3D" index="5" unique_id=9546634]
+transform = Transform3D(0.00015211105, 0, 1, -0.001395464, -0.99999905, 2.1226549e-07, 0.99999905, -0.001395464, -0.00015211091, 0.0031614942, -6.201139e-05, 0.0029874241)
+bone_idx = 24

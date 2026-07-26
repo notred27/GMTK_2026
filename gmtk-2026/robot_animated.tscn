@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://csd2pgnwhaloe"]
+
+[ext_resource type="PackedScene" uid="uid://d3otikc6uwefi" path="res://assets/robot_animated.fbx" id="1_1dlc4"]
+
+[node name="robot_animated" unique_id=1042020363 instance=ExtResource("1_1dlc4")]
+
+[node name="Skeleton3D" parent="robot_armature" parent_id_path=PackedInt32Array(2023621985) index="0" unique_id=437803442]
+bones/2/rotation = Quaternion(-0.4236361, 5.7510185e-08, -0.56615597, 0.70710677)
+bones/6/rotation = Quaternion(-3.991647e-07, -4.8740723e-08, 0.98763597, 0.15676497)
+bones/7/rotation = Quaternion(9.969597e-08, -6.820756e-07, 0.0063789967, 0.9999797)
+bones/8/rotation = Quaternion(-5.83672e-09, -1.5436105e-07, -0.007916139, 0.9999687)
+bones/10/rotation = Quaternion(6.629764e-08, -1.2179318e-07, 0.09400026, 0.9955722)
+bones/12/rotation = Quaternion(5.3202785e-07, 1.1870835e-08, 0.9858475, -0.16764544)
+bones/14/rotation = Quaternion(-1.2301913e-08, 3.2173052e-08, 0.034261543, 0.9994129)
+bones/16/rotation = Quaternion(2.6920906e-08, -9.083971e-09, -0.084723376, 0.9964045)
+bones/18/rotation = Quaternion(2.134962e-08, 1.5928007e-08, -0.007654696, 0.99997073)
+bones/20/rotation = Quaternion(0.7071068, -1.3767874e-07, -1.3767877e-07, 0.7071067)
+bones/22/rotation = Quaternion(0.7071068, -5.3667094e-07, -5.3667094e-07, 0.7071067)
+bones/24/rotation = Quaternion(0.7071068, -6.209646e-07, -6.209645e-07, 0.7071067)
+
+[node name="robot_wheels" parent="robot_armature/Skeleton3D" index="0" unique_id=1304826807]
+transform = Transform3D(-2.682209e-07, 1.0000001, -1.4901161e-07, 0.5991116, 3.5762787e-07, 0.8006655, 0.80066574, 2.1488765e-07, -0.59911156, 0.0018208493, -0.00033826227, -0.009492451)
+bone_idx = 2
+
+[node name="robot_head" parent="robot_armature/Skeleton3D" index="1" unique_id=2107994710]
+transform = Transform3D(0.9998828, 0.015308941, 3.152823e-08, 3.5729325e-08, -2.741477e-07, -0.9999999, -0.01530894, 0.99988264, -2.7466257e-07, 0, -3.467084e-09, 0.02148305)
+bone_idx = 18
+
+[node name="robot_gear1" parent="robot_armature/Skeleton3D" index="2" unique_id=758381598]
+transform = Transform3D(1, 0, -3.8941428e-07, 1.6128964e-13, -0.99999976, 3.5092998e-07, -3.8941425e-07, -3.5092998e-07, -0.99999976, -0.00080223905, -0.0021963594, 0.010929238)
+bone_idx = 20
+
+[node name="robot_gear2" parent="robot_armature/Skeleton3D" index="3" unique_id=627532423]
+transform = Transform3D(1, 0, -3.8941428e-07, 1.6128964e-13, -0.99999976, 3.5092998e-07, -3.8941425e-07, -3.5092998e-07, -0.99999976, -0.00080223905, -0.0021963594, 0.010929238)
+bone_idx = 20
+
+[node name="robot_gear3" parent="robot_armature/Skeleton3D" index="4" unique_id=2097093108]
+transform = Transform3D(1, -1.1368683e-13, -1.5179345e-06, 2.9463872e-13, -0.99999976, 2.3841854e-07, -1.5179344e-06, -2.3841854e-07, -0.99999976, -0.003474424, -0.0003720595, 0.0013252954)
+bone_idx = 22
+
+[node name="robot_gear4" parent="robot_armature/Skeleton3D" index="5" unique_id=660330321]
+transform = Transform3D(1, -3.4106049e-13, -1.7563528e-06, 2.0937357e-13, -0.99999976, 2.3841854e-07, -1.7563527e-06, -2.3841854e-07, -0.99999976, 0.0031614944, -5.784283e-05, 0.0029875077)
+bone_idx = 24
