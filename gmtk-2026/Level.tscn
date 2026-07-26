@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1710205, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.649658, 0, 0)
 
 [node name="PressurePlate" parent="GearPuzzle" unique_id=1415131089 node_paths=PackedStringArray("action") instance=ExtResource("6_m3clv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3256836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2198219, -0.1779728, 18.05566)
 action = NodePath("ActivateGearsAction")
 
 [node name="ActivateGearsAction" type="Node3D" parent="GearPuzzle/PressurePlate" unique_id=38130862 node_paths=PackedStringArray("gear_puzzle")]

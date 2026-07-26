@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://k3llif43lh37"]
 
 [ext_resource type="Script" uid="uid://dnxbyeoh6l8s0" path="res://interaction/pressure_plate.gd" id="1_derxm"]
+[ext_resource type="AudioStream" uid="uid://ccg3wxl5l0n8o" path="res://audio/PressurePlate_Down.wav" id="2_mia2p"]
+[ext_resource type="AudioStream" uid="uid://debmeyafn2f6w" path="res://audio/PressurePlate_Up.wav" id="3_e0nsg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qqdwy"]
 size = Vector3(1, 0.49035645, 1)
@@ -24,6 +26,12 @@ shape = SubResource("BoxShape3D_qqdwy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1184889686]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.056004345, 0)
 mesh = SubResource("BoxMesh_68yga")
+
+[node name="PressurePlateDown" type="AudioStreamPlayer3D" parent="." unique_id=971017408]
+stream = ExtResource("2_mia2p")
+
+[node name="PressurePlateUp" type="AudioStreamPlayer3D" parent="." unique_id=1777806768]
+stream = ExtResource("3_e0nsg")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

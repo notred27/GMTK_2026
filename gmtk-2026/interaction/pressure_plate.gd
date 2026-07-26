@@ -3,6 +3,9 @@ extends Node
 @export var action: InteractAction
 @onready var area: Area3D = $Area3D
 
+@onready var pressure_plate_down: AudioStreamPlayer3D = $PressurePlateDown
+@onready var pressure_plate_up: AudioStreamPlayer3D = $PressurePlateUp
+
 var bodies_on_plate: Array[Node3D] = []
 var is_activated := false
 
@@ -26,7 +29,9 @@ func _update_activation() -> void:
 	var should_be_active = bodies_on_plate.size() > 0
 	if should_be_active and not is_activated:
 		is_activated = true
+		pressure_plate_down.play()
 		action.call_action(bodies_on_plate[0])
 	elif not should_be_active and is_activated:
 		is_activated = false
+		pressure_plate_up.play()
 		action.deactivate_action(null)
